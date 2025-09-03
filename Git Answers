@@ -1,0 +1,52 @@
+How To:-
+
+1) Discard local modifications for a particular file
+Ans: 
+	git restore <file_path>
+	
+2) Discard local modifications for all files of the project
+Ans:
+	git reset --hard HEAD
+	
+3) Undo local commits 
+Ans: 
+	git reset --soft HEAD~1
+	
+4) Prohibiting some files from getting pushed
+Ans:
+	add file into .gitignore and then push
+	
+5) Remove a file from git 
+Ans:
+	cd /dir ## traverse to file directory
+	git rm --cached /file.txt ## remove file from git (not from local storage)
+	git -m "Removed Unwanted file.txt" ##commit
+
+6) Edit a commit message
+Ans:
+	git commit --amend -m "New Message" ##Most recent commit update
+	git rebase -i HEAD~3 ##Let you modify 3rd last commit
+	
+	
+7) revert pushed commits
+Ans:
+	git log ## first see log history og commits
+	git revert <commit-hash> ## add hash of a commit from log to revert
+	
+8) resolve merge conflicts
+Ans:
+	Manually edit conflicted files, then git add . and git commit
+	
+9) select when to use git merge or git rebase 
+Ans:
+	Use git merge <branch> for preserving history, git rebase <branch> for linear history
+	
+10) copy a commit from another branch to a branch (not necessary last commit)
+Ans:
+	git checkout <source_branch_name> ## switch to the branch of which commit needs to be changed
+	git log ## check logs for a commit hash
+	git checkout <target_branch> ## switch back to target branch
+	git cherry-pick <commit-hash> ## copies a commit to target branch
+
+Additional Read:
+11) Finding the commit that broke something after a merge
